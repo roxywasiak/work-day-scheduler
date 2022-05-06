@@ -28,41 +28,44 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead">Tuesday 03rd May 2022</p>
     </header>
-    <div class="container">
+    <!-- <div class="container d-flex flex-row"> -->
       <!-- Timeblocks go here -->
-      <div class="flex-container d-flex p-2 bd-highlight"></div>
-        <div class="time-block d-flex flex-row" id="time-block"></div>
-        <div class="hour  d-flex flex-row" id="hour">hour</div>
-        <div class="description" id="description">
-          <textarea class="textArea" id="textArea" >description of task</textarea>
-        </div>
+      <div class="d-flex flex-row">
+      <div class="time-block p2" id="time-block"></div>
+      <div class="hour p-2" id="hour">hour1</div>
+      <textarea class="textArea flex-grow-1 p-2" id="textArea">
+description of task</textarea
+       >
         <div class="saveBtn" id="saveBtn">Save Button</div>
       </div>
-      <div class="flex-container d-flex p-2 bd-highlight"></div>
-      <div class="time-block d-flex flex-row" id="time-block">Time-block</div>
-      <div class="hour  d-flex flex-row" id="hour">hour</div>
-      <div class="description" id="description">
-        <textarea class="textArea" id="textArea" >description of task</textarea>
+
+        <div class="d-flex flex-row">
+        <div class="time-block p-2" id="time-block"></div>
+        <div class="hour p-2" id="hour">hour2</div>
+        <textarea class="textArea flex-grow-1 p-2" id="textArea">
+description of task</textarea
+          >
+        <div class="saveBtn" id="saveBtn">Save Button</div>
       </div>
+        
+        
+      <div class="d-flex flex-row">
+        <div class="time-block p-2" id="time-block"></div>
+        <div class="hour p2" id="hour">hour3</div>
+        <textarea class="textArea flex-grow-1 p-2" id="textArea">
+description of task</textarea
+          >
+        <div class="saveBtn" id="saveBtn">Save Button</div>
+      </div>
+
+      <div class="d-flex flex-row">
+      <div class="time-block p-2" id="time-block"></div>
+      <div class="hour p2" id="hour">hour4</div>
+     <textarea class="textArea flex-grow-1 p-2" id="textArea">description of task</textarea>
       <div class="saveBtn" id="saveBtn">Save Button</div>
     </div>
-    <div class="flex-container d-flex p-2 bd-highlight"></div>
-    <div class="time-block d-flex flex-row" id="time-block">Time-block</div>
-    <div class="hour  d-flex flex-row" id="hour">hour</div>
-    <div class="description" id="description">
-      <textarea class="textArea" id="textArea" >description of task</textarea>
-    </div>
-    <div class="saveBtn" id="saveBtn">Save Button</div>
-  </div>
-  <div class="flex-container d-flex p-2 bd-highlight"></div>
-  <div class="time-block d-flex flex-row" id="time-block">Time-block</div>
-  <div class="hour  d-flex flex-row" id="hour">hour</div>
-  <div class="description" id="description">
-    <textarea class="textArea" id="textArea" >description of task</textarea>
-  </div>
-  <div class="saveBtn" id="saveBtn">Save Button</div>
-</div>
-    </div>
+  
+  </body>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
