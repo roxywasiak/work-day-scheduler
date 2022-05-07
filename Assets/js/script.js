@@ -48,9 +48,17 @@ const renderTimeBlocks = (each) => {};
 const saveBtn = () => {};
 
 //create the elements, set them give them attr
-const renderPlanner = () => {};
+const renderPlanner = () => {
+  //show the blocks on the page
+  renderTimeBlocks();
+};
 
 // show my planner and then it will load
-const showPlanner = () => {};
+const showPlanner = () => {
+  //show the date at the top
+  date();
+  //show the planner
+  renderPlanner();
+};
 
 $(window).on("load", showPlanner);
