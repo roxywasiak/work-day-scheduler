@@ -37,12 +37,27 @@ const workingDay = [
 
 const getEventForTimeBlock = (workingDay) => {};
 
+const getClassName = (workingDay) => {
+  const currentHour = moment().hour();
+  //if workingDay is present
+  if (workingDay === currentHour) {
+    return "present";
+    //if workingDay is future
+  }
+  if (workingDay > currentHour) {
+    return "future";
+  } //else workingDay is past
+  return "past";
+};
+
 const renderTimeBlocks = () => {
-  //for each working hour create and append timeblocks to the time block
+  //for each working hour create and append timeBlocks to the time block
   const timeBlocks = $("#time-blocks");
   const renderTimeBlock = (workingDay) => {
     //make the timeblocks dynamically
-    const timeBlock = `<div class="row p-2">
+    const timeBlock = `<div class="row p-2 my-2 ${getClassName(
+      workingDay.key
+    )}">
     <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${
       workingDay.label
     }</div>
