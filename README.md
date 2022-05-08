@@ -16,6 +16,6 @@ Click the link to visit the website [here] (https://roxywasiak.github.io/work-da
 
 # Screenshots
 
-![desktop-screenhot](./assets/screenshots/workdayimage.png)
+![desktop-screenshot](./assets/screenshots/workdayimage.png)
 
-![desktop-image](./assets/screenshots/textinput.png)
+![desktop-screenshot](./assets/screenshots/textinput.png)
