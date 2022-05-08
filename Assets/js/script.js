@@ -34,34 +34,35 @@ const workingDay = [
 // const clearLS = () => {
 //   localStorageGet.clear();
 // };
-const getEventForTimeBlock = (workingDay) => {
-  
-}
+const getEventForTimeBlock = (workingDay) => {};
 
 const renderTimeBlocks = () => {
   //for each working hour create and append timeblocks to the time block
   const timeBlocks = $("#time-blocks");
   const renderTimeBlock = (workingDay) => {
- //make the timeblocks dynamically
-const timeBlock =
-` <div class="container" id="time-blocks">
-   <div class="row p-2">
-    <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${workingDay.label}</div>
-   <textarea class="col-md-9 col-sm-12" rows="3"> ${getEventForTimeBlock(workingDay.key)}</textarea>
+    //make the timeblocks dynamically
+    const timeBlock = `<div class="row p-2">
+    <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${
+      workingDay.label
+    }</div>
+   <textarea class="col-md-9 col-sm-12" rows="3"> ${getEventForTimeBlock(
+     workingDay.key
+   )}</textarea>
    <div class="col-md-2 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">
-      <button type="button"  data-hour=${workingDay.key} class="btn btn-success">Save</button>
-    </div>
+      <button type="button"  data-hour=${
+        workingDay.key
+      } class="btn btn-success">Save</button> 
     </div>`;
     //append to parent
     timeBlocks.append(timeBlock);
   };
   workingDay.forEach(renderTimeBlock);
-
-  const onReady = () => {
-    console.log("ready");
-    renderTimeBlocks(); 
 };
 
+const onReady = () => {
+  console.log("ready");
+  renderTimeBlocks();
+};
 
 //document.ready ? will check notes
 $(document).ready(onReady);
