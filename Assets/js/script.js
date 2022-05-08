@@ -2,8 +2,8 @@ const timeBlocks = $("#time-blocks");
 //using moment.js to get the date format and i will add it to the #currentDay id
 const date = () => {
   //date format using moment js
-  const newDate = moment().format("dddd, MMMM Do YYYY HH:mm");
-  $("#currentDay").append(newDate);
+  const newDate = moment().format("dddd, MMMM Do YYYY HH:mm:ss");
+  $("#currentDay").empty().append(newDate);
 };
 
 //the object array where the timeblocks labels are for each hour
@@ -36,7 +36,33 @@ const workingDay = [
 //   localStorageGet.clear();
 // };
 
-const getEventForTimeBlock = (workingDay) => {};
+const readFromLocalStorage = (key, defaultValue) => {
+  // get from LS using key name
+  const dataFromLS = localStorage.getItem(key);
+
+  // parse data from LS
+  const parsedData = JSON.parse(dataFromLS);
+
+  if (parsedData) {
+    return parsedData;
+  } else {
+    return defaultValue;
+  }
+};
+
+const writeToLocalStorage = (key, value) => {
+  // convert value to string
+  const stringifiedValue = JSON.stringify(value);
+
+  // set stringified value to LS for key name
+  localStorage.setItem(key, stringifiedValue);
+};
+
+const getEventForTimeBlock = (workingDay) => {
+  const planner = readFromLocalStorage("planner", {});
+
+  return planner[workingDay] || "";
+};
 
 const getClassName = (workingDay) => {
   const currentHour = moment().hour();
@@ -77,6 +103,7 @@ const renderTimeBlocks = () => {
 
 const onReady = () => {
   date();
+  setInterval(date, 1000);
   renderTimeBlocks();
 };
 
@@ -87,8 +114,14 @@ const saveToLS = (event) => {
     const key = target.attr("data-hour");
     console.log(key);
     // get object want to save
-    const value = $(`textarea[data-text-area-key="${key}"]`).val().trim();
+    const value = $(`textarea[data-textarea-key="${key}"]`).val().trim();
     console.log(value);
+
+    const planner = readFromLocalStorage("planner", {});
+
+    planner[key] = value;
+
+    writeToLocalStorage("planner", planner);
   }
 };
 
