@@ -1,3 +1,4 @@
+const timeBlocks = $("#time-blocks");
 //using moment.js to get the date format and i will add it to the #currentDay id
 const date = () => {
   //date format using moment js
@@ -52,7 +53,6 @@ const getClassName = (workingDay) => {
 
 const renderTimeBlocks = () => {
   //for each working hour create and append timeBlocks to the time block
-  const timeBlocks = $("#time-blocks");
   const renderTimeBlock = (workingDay) => {
     //make the timeblocks dynamically
     const timeBlock = `<div class="row p-2 my-2 ${getClassName(
@@ -61,9 +61,9 @@ const renderTimeBlocks = () => {
     <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${
       workingDay.label
     }</div>
-   <textarea class="col-md-9 col-sm-12" rows="3"> ${getEventForTimeBlock(
+   <textarea class="col-md-9 col-sm-12" rows="3" data-textarea-key = ${
      workingDay.key
-   )}</textarea>
+   } > ${getEventForTimeBlock(workingDay.key)}</textarea>
    <div class="col-md-2 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">
       <button type="button"  data-hour=${
         workingDay.key
@@ -79,6 +79,20 @@ const onReady = () => {
   date();
   renderTimeBlocks();
 };
+
+const saveToLS = (event) => {
+  const target = $(event.target);
+  if (target.is("button")) {
+    console.log("click");
+    const key = target.attr("data-hour");
+    console.log(key);
+    // get object want to save
+    const value = $(`textarea[data-text-area-key="${key}"]`).val().trim();
+    console.log(value);
+  }
+};
+
+timeBlocks.click(saveToLS);
 
 //document.ready ? will check notes
 $(document).ready(onReady);
