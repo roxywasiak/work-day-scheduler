@@ -1,7 +1,7 @@
 //using moment.js to get the date format and i will add it to the #currentDay id
 const date = () => {
   //date format using moment js
-  const newDate = moment().format("dddd, MMMM Do YYYY");
+  const newDate = moment().format("dddd, MMMM Do YYYY HH:mm");
   $("#currentDay").append(newDate);
 };
 
@@ -34,6 +34,7 @@ const workingDay = [
 // const clearLS = () => {
 //   localStorageGet.clear();
 // };
+
 const getEventForTimeBlock = (workingDay) => {};
 
 const renderTimeBlocks = () => {
@@ -60,7 +61,7 @@ const renderTimeBlocks = () => {
 };
 
 const onReady = () => {
-  console.log("ready");
+  date();
   renderTimeBlocks();
 };
 
