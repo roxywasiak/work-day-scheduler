@@ -18,73 +18,50 @@ const workingDay = [
   { label: "5pm", key: 17 },
 ];
 
-//storage set up
-const localStorageGet = (key) => {
-  return JSON.parse(localStorage.getItem(key));
+// //storage set up
+// const localStorageGet = (key) => {
+//   return JSON.parse(localStorage.getItem(key));
+// };
+
+// //write to the local storage
+// const localStorageWrite = (key, data) => {
+//   //ternary operator if true
+//   if (data ? "" : console.log("enter something"));
+//   localStorage.setItem(key, JSON.stringify(data));
+// };
+
+// //get rid of localstorage
+// const clearLS = () => {
+//   localStorageGet.clear();
+// };
+const getEventForTimeBlock = (workingDay) => {
+  
+}
+
+const renderTimeBlocks = () => {
+  //for each working hour create and append timeblocks to the time block
+  const timeBlocks = $("#time-blocks");
+  const renderTimeBlock = (workingDay) => {
+ //make the timeblocks dynamically
+const timeBlock =
+` <div class="container" id="time-blocks">
+   <div class="row p-2">
+    <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${workingDay.label}</div>
+   <textarea class="col-md-9 col-sm-12" rows="3"> ${getEventForTimeBlock(workingDay.key)}</textarea>
+   <div class="col-md-2 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">
+      <button type="button"  data-hour=${workingDay.key} class="btn btn-success">Save</button>
+    </div>
+    </div>`;
+    //append to parent
+    timeBlocks.append(timeBlock);
+  };
+  workingDay.forEach(renderTimeBlock);
+
+  const onReady = () => {
+    console.log("ready");
+    renderTimeBlocks(); 
 };
 
-//write to the local storage
-const localStorageWrite = (key, data) => {
-  //ternary operator if true
-  if (data ? "" : console.log("enter something"));
-  localStorage.setItem(key, JSON.stringify(data));
-};
-
-//get rid of localstorage
-const clearLS = () => {
-  localStorageGet.clear();
-};
-
-// WILL USE THIS IN THE RENDER TIMEBLOCKS
-// const currentHour = moment().hour;
-// console.log(currentHour);
-//show my timeblocks to appear on the page
-//create the elements and add them to the container
-const renderTimeBlocks = (each) => {
-  const timeNow = moment().hour;
-
-  const createElements = (each) => {
-    //gets all the timeblocks from html code adds to div
-    $("#container").append($("div"));
-    .addClass("d-flex flex-row")
-    //adds the attr for the timeblock id 
-    .attr("id",  `time-block${each.key}`)
-    //sets the attributes 
-    .attr("data-key", `${each.key}`)
-    .append()
-//not sure if i add to div again or leave it?
-   .addClass("hour text-right p-3")
-   
-    
-};
-
-//the save button to save in ls
-const saveBtn = (event) => {
-  //the data within the key when the saveBtn is clicked
-  const keyClicked = $(event.target).attr("data-key");
-  //gets rid of things stored from savBtn from LS
-  //add the text items once you create with jquery
-  clearLS(keyClicked);
-  if (keyClicked) {
-    showPlanner();
-  }
-};
-
-//create the elements, set them give them attr
-const renderPlanner = () => {
-  //when clicked the events get handled
-  //?handle the savBtn click call it
-  //show the blocks on the page
-  renderTimeBlocks();
-};
-
-// show my planner and then it will load
-const showPlanner = () => {
-  //show the date at the top
-  date();
-  //show the planner
-  renderPlanner();
-};
 
 //document.ready ? will check notes
-$(document).ready(showPlanner, date);
+$(document).ready(onReady);
