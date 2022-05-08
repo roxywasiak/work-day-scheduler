@@ -12,7 +12,7 @@ The time was used from MomentJs and formatted to display current time using the 
 
 # Link to URL
 
-Click the link to visit the website [here] ()
+Click the link to visit the website [here] (https://roxywasiak.github.io/work-day-scheduler/)
 
 # Screenshots
 
