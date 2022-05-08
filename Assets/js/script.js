@@ -46,13 +46,16 @@ const renderTimeBlocks = (each) => {
   const createElements = (each) => {
     //gets all the timeblocks from html code adds to div
     $("#container").append($("div"));
-    //adds the class for the timeblock second div
-    .addClass("time-block p-2")
-    sets the attributes 
-    .attr("data-key",  `${each.key}`)
-    .append (
-
-    )
+    .addClass("d-flex flex-row")
+    //adds the attr for the timeblock id 
+    .attr("id",  `time-block${each.key}`)
+    //sets the attributes 
+    .attr("data-key", `${each.key}`)
+    .append()
+//not sure if i add to div again or leave it?
+   .addClass("hour text-right p-3")
+   
+    
 };
 
 //the save button to save in ls
@@ -60,7 +63,6 @@ const saveBtn = (event) => {
   //the data within the key when the saveBtn is clicked
   const keyClicked = $(event.target).attr("data-key");
   //gets rid of things stored from savBtn from LS
-
   //add the text items once you create with jquery
   clearLS(keyClicked);
   if (keyClicked) {
@@ -85,4 +87,4 @@ const showPlanner = () => {
 };
 
 //document.ready ? will check notes
-$(document).ready(showPlanner);
+$(document).ready(showPlanner, date);
