@@ -19,23 +19,6 @@ const workingDay = [
   { label: "5pm", key: 17 },
 ];
 
-// //storage set up
-// const localStorageGet = (key) => {
-//   return JSON.parse(localStorage.getItem(key));
-// };
-
-// //write to the local storage
-// const localStorageWrite = (key, data) => {
-//   //ternary operator if true
-//   if (data ? "" : console.log("enter something"));
-//   localStorage.setItem(key, JSON.stringify(data));
-// };
-
-// //get rid of localstorage
-// const clearLS = () => {
-//   localStorageGet.clear();
-// };
-
 const readFromLocalStorage = (key, defaultValue) => {
   // get from LS using key name
   const dataFromLS = localStorage.getItem(key);
