@@ -93,12 +93,9 @@ const onReady = () => {
 const saveToLS = (event) => {
   const target = $(event.target);
   if (target.is("button")) {
-    console.log("click");
     const key = target.attr("data-hour");
-    console.log(key);
     // get object want to save
     const value = $(`textarea[data-textarea-key="${key}"]`).val().trim();
-    console.log(value);
 
     const planner = readFromLocalStorage("planner", {});
 
